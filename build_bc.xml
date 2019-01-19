@@ -1,0 +1,33 @@
+<project>
+
+    <!-- Paths -->
+    <path id="my_classpath">
+        <pathelement location="${basedir}/build/classes" />
+    </path>
+
+    <target name="run">
+        <loadproperties srcFile="build.properties" />
+        <delete dir="${basedir}/build" />
+        <delete dir="${basedir}/output/${player}" />
+        <mkdir  dir="${basedir}/build" />
+        <mkdir  dir="${basedir}/build/classes" />
+        <javac
+                srcdir="${basedir}/src/instrumenter"
+                destdir="${basedir}/build/classes"
+                includeAntRuntime="false">
+            <classpath refid="my_classpath" />
+        </javac>
+
+        <java classname="instrumenter.Main" failonerror="true" fork="yes">
+            <jvmarg value="-noverify" />
+            <classpath refid="my_classpath" />
+            <arg value="${player}" />
+        </java>
+
+        <exec dir="${basedir}/output" executable="cmd.exe">
+            <arg line= "dir"/>
+        </exec>
+
+    </target>
+
+</project>
