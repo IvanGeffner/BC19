@@ -1,4 +1,4 @@
-package sixthbot;
+package bc19;
 
 public class Constants {
 
@@ -23,6 +23,7 @@ public class Constants {
     final static int[] fuelCosts = new int[]{0, 200, 50, 50, 50, 50};
     final static int[] attack = new int[]{10,0,0,10,10,20};
     final static int[] range = new int[]{64,0,0,16,64,16};
+    final static int[] visionRange = new int[]{100, 100, 100, 49, 64, 16};
     final static int[] dangerRange = new int[]{64,0,0,16,64,26};
     final static int[] minRange = new int[]{0,0,0,0,16,0};
     final static int[] health = new int[]{200, 100, 10, 40, 20, 60};
@@ -92,5 +93,10 @@ public class Constants {
 
     final static int BARE_MINIMUM_KARBO = 30;
     final static int BARE_MINIMUM_FUEL = 100;
+
+    final static int CLOSEST_PROPHET_RANGE = 16;
+    final static int MIN_RANGE_REPEATED = 5;
+    final static int MAX_RANGE_PROPHET = 100;
+    final static int MAX_RANGERS = 10;
 
 }

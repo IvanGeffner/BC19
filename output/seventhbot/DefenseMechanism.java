@@ -1,6 +1,5 @@
-package sixthbot;
+package bc19;
 
-import btcutils.Robot;
 
 public class DefenseMechanism {
 

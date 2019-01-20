@@ -1,4 +1,4 @@
-package sixthbot;
+package seventhbot;
 
 import btcutils.Robot;
 
