@@ -550,7 +550,7 @@ public class CastleUtils {
             this.y = y;
             this.dir = dir;
             this.castle = castle;
-            this.nearEnemy = false;
+            //this.nearEnemy = false;
         }
 
         int value(){

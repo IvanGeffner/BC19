@@ -120,10 +120,15 @@ public class Broadcast {
         Robot closestRobot = null;
         int shortestDist = 0;
         Location[] rangers = getRangers();
+        boolean found = false;
         for (Robot r : utils.robotsInVision){
             if (!myRobot.isVisible(r)) continue;
-            if (r.team == myRobot.me.team) continue;
             if (r.unit != Constants.PROPHET) continue;
+            if (r.team == myRobot.me.team){
+                int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x,r.y);
+                if (d <= Constants.CLOSEST_PROPHET_RANGE) found = true;
+                continue;
+            }
             if (alreadySent(r, rangers)) continue;
             int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x,r.y);
             if (closestRobot == null || shortestDist > d){
@@ -131,7 +136,7 @@ public class Broadcast {
                 closestRobot = r;
             }
         }
-        if (closestRobot != null) sendClosestProphet(closestRobot);
+        if (found && closestRobot != null) sendClosestProphet(closestRobot);
     }
 
     boolean alreadySent(Robot r, Location[] locs){

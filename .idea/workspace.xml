@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98e1bae1-7df4-435b-b91a-e6d28cb9156d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Clairvoyance" beforeDir="false" afterPath="$PROJECT_DIR$/Clairvoyance" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Clairvoyance/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Clairvoyance/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Clairvoyance/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Clairvoyance/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/replay.bc19" beforeDir="false" afterPath="$PROJECT_DIR$/output/replay.bc19" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sixthbot/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sixthbot/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sixthbot/DefenseMechanism.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sixthbot/DefenseMechanism.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sixthbot/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sixthbot/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Broadcast.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Broadcast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Broadcast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Broadcast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,14 +65,14 @@
           <entry key="TODO" value="740" />
           <entry key="build_params" value="33" />
           <entry key="dummy" value="5" />
-          <entry key="java" value="71199" />
+          <entry key="java" value="71286" />
           <entry key="properties" value="135" />
           <entry key="xml" value="536" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="71199" />
+          <entry key="JAVA" value="71286" />
           <entry key="PLAIN_TEXT" value="778" />
           <entry key="Properties" value="135" />
           <entry key="XML" value="536" />
@@ -102,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9142">
-              <caret line="552" column="35" selection-start-line="552" selection-start-column="35" selection-end-line="552" selection-end-column="35" />
+            <state relative-caret-position="-58">
+              <caret line="552" column="14" selection-start-line="552" selection-start-column="14" selection-end-line="552" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -132,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/seventhbot/Broadcast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="158" column="10" selection-start-line="158" selection-start-column="10" selection-end-line="158" selection-end-column="10" />
+            <state relative-caret-position="545">
+              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
             </state>
           </provider>
         </entry>
@@ -156,10 +154,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/seventhbot/Prophet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
+            <state relative-caret-position="502">
               <caret line="154" column="14" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
             </state>
           </provider>
@@ -254,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/sixthbot/Constants.java" />
         <option value="$PROJECT_DIR$/src/sixthbot/Utils.java" />
         <option value="$PROJECT_DIR$/src/sixthbot/DefenseMechanism.java" />
-        <option value="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/AbstractProphet.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Preacher.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Castle.java" />
@@ -262,9 +259,10 @@
         <option value="$PROJECT_DIR$/build.properties" />
         <option value="$PROJECT_DIR$/src/seventhbot/Pilgrim.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Constants.java" />
-        <option value="$PROJECT_DIR$/src/seventhbot/Broadcast.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Micro.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Prophet.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Broadcast.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" />
       </list>
     </option>
   </component>
@@ -329,7 +327,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547966682436" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547968392687" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -390,8 +388,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29060403" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29060403" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -410,7 +409,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info active="true" anchor="right" id="Ant Build" order="1" visible="true" weight="0.13959731" />
+      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.13959731" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -751,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9142">
-          <caret line="552" column="35" selection-start-line="552" selection-start-column="35" selection-end-line="552" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/Castle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -793,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/seventhbot/Broadcast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="158" column="10" selection-start-line="158" selection-start-column="10" selection-end-line="158" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/Micro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
@@ -809,8 +794,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/Prophet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
+        <state relative-caret-position="502">
           <caret line="154" column="14" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Broadcast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-58">
+          <caret line="552" column="14" selection-start-line="552" selection-start-column="14" selection-end-line="552" selection-end-column="14" />
         </state>
       </provider>
     </entry>
