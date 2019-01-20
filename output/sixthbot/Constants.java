@@ -90,4 +90,7 @@ public class Constants {
 
     final static int MAX_STILL_TURNS_PREACHER = 8;
 
+    final static int BARE_MINIMUM_KARBO = 30;
+    final static int BARE_MINIMUM_FUEL = 100;
+
 }

@@ -55,7 +55,7 @@ public class DefenseMechanism {
     }
 
     int whichUnitToBuild(){
-        if (!mageNearby && enemyUnits[Constants.CRUSADER] > 0) return Constants.PREACHER;
+        if (!mageNearby && (enemyUnits[Constants.CRUSADER] + enemyUnits[Constants.PREACHER]) > 0) return Constants.PREACHER;
         return Constants.PROPHET;
     }
 
@@ -69,6 +69,7 @@ public class DefenseMechanism {
 
     DefenseMechanismAction buildDefenseUnit(int type, boolean safe){
         if (!utils.canBuild(type)) return null;
+        if (myRobot.me.unit == Constants.CHURCH && !utils.canBuildChurch(type)) return null;
         Integer index = micro[type-firstSoldierIndex].getBestIndex();
         if (index == null) return null;
         if (!safe || isSafe(type, index)) return new DefenseMechanismAction(type, index);

@@ -35,6 +35,12 @@ public class Utils {
         return true;
     }
 
+    boolean canBuildChurch(int unit){
+        if (myRobot.fuel < Constants.fuelCosts[unit] + Constants.BARE_MINIMUM_FUEL) return false;
+        if (myRobot.karbonite < Constants.karboCosts[unit] + Constants.BARE_MINIMUM_KARBO) return false;
+        return true;
+    }
+
     boolean isInMap(int x, int y){
         if (x < 0 || x >= dimX) return false;
         if (y < 0 || y >= dimY) return false;
