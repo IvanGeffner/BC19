@@ -49,7 +49,7 @@ public class Pilgrim extends Unit {
         churchBuild.tryBuildChurch();
         sendCastleMessage();
         if (!micro.isSafeStaying()) actionToPerform = myRobot.move(Constants.X[safeDir], Constants.Y[safeDir]);
-        broadcast.broadcastClosestProphet();
+        //broadcast.broadcastClosestProphet();
         broadcast.broadcast();
         return actionToPerform;
     }
@@ -65,7 +65,7 @@ public class Pilgrim extends Unit {
     }
 
     int getMaxKarbo(){
-        if (myRobot.karbonite >= Constants.KARBO_PILGRIM_RICH) return Constants.MAX_KARBO_PILGRIM_RICH;
+        if (myRobot.karbonite >= Constants.KARBO_PILGRIM_RICH && approxFuelLostInTravel <= Constants.MAX_FUEL_LOST) return Constants.MAX_KARBO_PILGRIM_RICH;
         return Constants.MAX_KARBO_PILGRIM;
     }
 
@@ -221,6 +221,7 @@ public class Pilgrim extends Unit {
         if (id == 0){
             closestStructure = null;
             churchBuild.builtChurch = false;
+            approxFuelLostInTravel = Constants.INF;
         }
     }
 

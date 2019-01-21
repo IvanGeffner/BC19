@@ -57,6 +57,7 @@ public class FinalAttack {
     void checkFinalAttack(){
         if (alreadyCalled) return;
         if (myRobot.me.turn < MIN_TURN) return;
+        //if (castleUtils != null && castleUtils.allCastlesAlive()) return;
         Location attackLoc = getFinalAttackLocation();
         if (attackLoc == null){
             if (myRobot.fuel < MIN_FUEL) return;

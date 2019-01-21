@@ -265,7 +265,7 @@ public class CastleUtils {
 
 
     int getBestIndex(){
-        if (!finalAttack.alreadyCalled){
+        if (myRobot.me.turn < Constants.MIN_TURN_CASTLES_ENEMY){
             while (karboObjectiveIndex < karbo.length && objectives[karbo[karboObjectiveIndex]].isNearEnemy()) ++karboObjectiveIndex;
             while (fuelObjectiveIndex < fuel.length && objectives[fuel[fuelObjectiveIndex]].isNearEnemy()) ++fuelObjectiveIndex;
         }
@@ -535,6 +535,13 @@ public class CastleUtils {
             }
         }
         return ans;
+    }
+
+    boolean allCastlesAlive(){
+        for (CastleInfo ci : myCastles){
+            if (!ci.wellDefined() || !ci.isAlive()) return false;
+        }
+        return true;
     }
 
     class Objective{

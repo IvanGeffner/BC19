@@ -118,13 +118,14 @@ public class Broadcast {
     }
 
     void broadcastClosestProphet(){
+        if (myRobot.fuel < Constants.SAFETY_FUEL) return;
         Robot closestRobot = null;
         int shortestDist = 0;
         Location[] rangers = getRangers();
         boolean found = false;
         for (Robot r : utils.robotsInVision){
             if (!myRobot.isVisible(r)) continue;
-            if (r.unit != Constants.PROPHET) continue;
+            if (r.unit != Constants.PROPHET && r.unit != Constants.CASTLE) continue;
             if (r.team == myRobot.me.team){
                 int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x,r.y);
                 if (d <= Constants.CLOSEST_PROPHET_RANGE) found = true;

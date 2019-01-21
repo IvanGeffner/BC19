@@ -157,8 +157,8 @@ public class Micro {
             int d = utils.distance(loc.x, loc.y, x,y);
             if (d > Constants.MAX_RANGE_PROPHET) return;
             if (Constants.dangerRange[Constants.PROPHET] >= d) dmgTaken += Constants.attack[Constants.PROPHET];
-            if (myRobot.me.unit != Constants.PILGRIM && minRange > d) minRange = d;
-            if (d >= Constants.minRange[myRobot.me.unit] && d <= Constants.dangerRange[myRobot.me.unit]) canShoot = true;
+            //if (myRobot.me.unit != Constants.PILGRIM && minRange > d) minRange = d;
+            //if (d >= Constants.minRange[myRobot.me.unit] && d <= Constants.dangerRange[myRobot.me.unit]) canShoot = true;
         }
 
     }

@@ -99,4 +99,6 @@ public class Constants {
     final static int MAX_RANGE_PROPHET = 100;
     final static int MAX_RANGERS = 10;
 
+    final static int MIN_TURN_CASTLES_ENEMY = 120;
+
 }
