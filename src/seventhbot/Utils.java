@@ -74,12 +74,14 @@ public class Utils {
     }
 
     boolean rich(){
+        if (myRobot.me.turn > Constants.BUILD_FRENZY) return true;
         if (myRobot.karbonite < Constants.RICH_KARBO) return false;
         if (myRobot.fuel < Constants.RICH_FUEL) return false;
         return true;
     }
 
     boolean superRich(){
+        if (myRobot.me.turn > Constants.BUILD_FRENZY) return true;
         if (myRobot.karbonite < Constants.SUPER_RICH_KARBO) return false;
         if (myRobot.fuel < Constants.SUPER_RICH_FUEL) return false;
         return true;
