@@ -23,7 +23,7 @@ public class CastleUtils {
     int[] karbo;
     int[] fuel;
 
-    int[][] closestCastle;
+    int[][] closestCastle, mapDist;
     boolean allCastleLocs = false;
     boolean[] alive;
 
@@ -91,7 +91,9 @@ public class CastleUtils {
         if(!defenseMechanism.buildUnitRich()) return;
         ProphetLoc prophetLoc = getBestProphetLoc(null);
         if (prophetLoc != null){
-            nextTurnAction = myRobot.buildUnit(defenseMechanism.whichUnitToBuildFree(), Constants.X[prophetLoc.dirInitial], Constants.Y[prophetLoc.dirInitial]);
+            int type = Constants.PROPHET;
+            if (prophetLoc.safe())  type = Constants.CRUSADER;
+            nextTurnAction = myRobot.buildUnit(type, Constants.X[prophetLoc.dirInitial], Constants.Y[prophetLoc.dirInitial]);
             broadcast.sendTarget(prophetLoc.target, broadcast.PROPHET_AGGRO, Constants.Steplength[prophetLoc.dirInitial]);
         }
     }
@@ -201,14 +203,14 @@ public class CastleUtils {
 
 
     void generateObjectiveList(){
-        int[][] dist = new int[utils.dimX][utils.dimY];
+        mapDist = new int[utils.dimX][utils.dimY];
         int[][] dir = new int[utils.dimX][utils.dimY];
         int[][] fuelM = new int[utils.dimX][utils.dimY];
-        int[][] closestCastle = new int[utils.dimX][utils.dimY];
+        closestCastle = new int[utils.dimX][utils.dimY];
         Queue<Location> queue = new LinkedList<>();
         for (int i = 0; i < myCastles.length; ++i){
             if (myCastles[i].wellDefined()){
-                dist[myCastles[i].x][myCastles[i].y] = 1;
+                mapDist[myCastles[i].x][myCastles[i].y] = 1;
                 closestCastle[myCastles[i].x][myCastles[i].y] = i;
                 queue.add(new Location(myCastles[i].x, myCastles[i].y));
             }
@@ -217,7 +219,7 @@ public class CastleUtils {
         int karboCont = 0, fuelCont = 0;
         while (!queue.isEmpty()){
             Location last = queue.poll();
-            int lastDist = dist[last.x][last.y];
+            int lastDist = mapDist[last.x][last.y];
             int castle = closestCastle[last.x][last.y];
             if (myRobot.fuelMap[last.y][last.x]){
                 aux.add(new Objective(Constants.OBJ_FUEL, lastDist-1, last.x, last.y, dir[last.x][last.y],castle));
@@ -234,15 +236,15 @@ public class CastleUtils {
                 int newY = last.y + Constants.Y[i];
                 int newFuel = fuelM[last.x][last.y] + Constants.Steplength[i];
                 if (utils.isInMap(newX, newY) && utils.isEmptySpaceAbsolute(newX, newY)){
-                    if (dist[newX][newY] == 0){
+                    if (mapDist[newX][newY] == 0){
                         queue.add(new Location(newX, newY));
-                        dist[newX][newY] = lastDist + 1;
+                        mapDist[newX][newY] = lastDist + 1;
                         fuelM[newX][newY] = newFuel;
                         closestCastle[newX][newY] = castle;
                         if (lastDist == 1) dir[newX][newY] = i;
                         else dir[newX][newY] = dir[last.x][last.y];
                     }
-                    if (dist[newX][newY] == lastDist + 1){
+                    if (mapDist[newX][newY] == lastDist + 1){
                         if (fuelM[newX][newY] > newFuel){
                             fuelM[newX][newY] = newFuel;
                             closestCastle[newX][newY] = castle;
@@ -673,5 +675,21 @@ public class CastleUtils {
             this.dirInitial = dirInitial;
             this.target = target;
         }
+
+        boolean safe(){
+            double closestCastleDist = mapDist[target.x][target.y];
+            //if (closestCastleDist <= Constants.MAX_DIST_TROOPS) return false;
+            if (utils.distance(target, myLocation) <= Constants.MAX_DIST_TROOPS) return false;
+            int castle = closestCastle[target.x][target.y];
+            Location closestCastle = new Location(myCastles[castle].x, myCastles[castle].y);
+            Location enemyCastleLoc = finalAttack.symmetry.getSymmetric(closestCastle);
+            Location sym = finalAttack.symmetry.getSymmetric(target);
+            double closestEnemyCastleDist = mapDist[sym.x][sym.y];
+            double distFromCastleToCastle = mapDist[enemyCastleLoc.x][enemyCastleLoc.y];
+            double cosAngle = closestCastleDist*closestCastleDist + distFromCastleToCastle*distFromCastleToCastle - closestEnemyCastleDist*closestEnemyCastleDist;
+            cosAngle /= (2.0*closestCastleDist*distFromCastleToCastle);
+            return cosAngle < Constants.MAX_COS;
+        }
+
     }
 }

@@ -2,14 +2,15 @@ package bc19;
 
 public class Constants {
 
-    static final int[] X = new int[] {1, 0, -1, 0, 1, 1, -1, -1, 2, 0, -2, 0};
-    static final int[] Y = new int[] {0, 1, 0, -1, 1, -1, -1, 1, 0, 2, 0, -2};
-    static final int[] Steplength = new int[] {1,1,1,1,2,2,2,2,4,4,4,4};
+    static final int[] X = new int[] {1, 0, -1, 0, 1, 1, -1, -1, 2, 0, -2, 0, 2, 2, -2, -2, 1, 1, -1, -1, 2, 2, -2, -2, 3, -3, 0, 0};
+    static final int[] Y = new int[] {0, 1, 0, -1, 1, -1, -1, 1, 0, 2, 0, -2, 1, -1, 1, -1, 2, -2, 2, -2, -2, 2, -2, 2, 0, 0, 3, -3};
+    static final int[] Steplength = new int[] {1,1,1,1,2,2,2,2,4,4,4,4,5,5,5,5,5,5,5,5,8,8,8,8,9,9,9,9};
 
     static final int maxMapSize = 64;
     static final int LocationSize = 64*64;
     static final int rad4Index = 12;
     static final int rad2Index = 8;
+    static final int rad9Index = 28;
 
     final static int CASTLE = 0;
     final static int CHURCH = 1;
@@ -101,5 +102,10 @@ public class Constants {
 
     final static int MIN_TURN_CASTLES_ENEMY = 120;
     final static int BUILD_FRENZY = 950;
+
+    final static int SAFE_DIFFERENCE = 2;
+    final static int MIN_TROOPS = 5;
+
+    final static double MAX_COS = -0.15;
 
 }

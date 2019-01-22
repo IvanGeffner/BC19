@@ -138,7 +138,7 @@ public class Broadcast {
                 closestRobot = r;
             }
         }
-        if (found && closestRobot != null) sendClosestProphet(closestRobot);
+        if (found && closestRobot != null && shortestDist > Constants.range[Constants.PROPHET]) sendClosestProphet(closestRobot);
     }
 
     boolean alreadySent(Robot r, Location[] locs){

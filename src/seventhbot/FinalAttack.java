@@ -5,7 +5,7 @@ import btcutils.Robot;
 public class FinalAttack {
 
     final int MIN_FUEL = 15000;
-    final int MIN_TURN = 400;
+    final int MIN_TURN = 500;
     final int MIN_CONT = 70;
 
     final int BROADCAST_DIST = 45;
@@ -43,7 +43,7 @@ public class FinalAttack {
                 int xObj = (r.signal/ Constants.maxMapSize)% Constants.maxMapSize;
                 int yObj = r.signal% Constants.maxMapSize;
                 Location loc = new Location(xObj, yObj);
-                if (myRobot.me.unit != Constants.CASTLE && utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y) > BROADCAST_DIST) continue;
+                if (myRobot.me.unit != Constants.CASTLE && myRobot.me.unit != Constants.CRUSADER && utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y) > BROADCAST_DIST) continue;
                 if (bestLoc == null || utils.distance(myLoc, loc) < minDist){
                     minDist = utils.distance(myLoc, loc);
                     bestLoc = loc;

@@ -31,14 +31,14 @@ public class Church extends Unit {
     public Action getAction(){
         DefenseMechanismAction dma = defenseMechanism.defenseAction(true);
         if (dma != null){
-            ProphetLoc loc = getBestProphetLoc(dma.dir);
+            ProphetLoc loc = getBestProphetLoc(dma.dir, Constants.INF);
             if (loc != null){
                 broadcast.sendTarget(loc.target, broadcast.PROPHET_AGGRO, Constants.Steplength[dma.dir]);
             }
             return myRobot.buildUnit(dma.type, Constants.X[dma.dir], Constants.Y[dma.dir]);
         }
         if (defenseMechanism.buildUnitRich()){
-            ProphetLoc loc = getBestProphetLoc(null);
+            ProphetLoc loc = getBestProphetLoc(null, Constants.MAX_DIST_TROOPS);
             if (loc != null){
                 broadcast.sendTarget(loc.target, broadcast.PROPHET_AGGRO, Constants.Steplength[loc.dirInitial]);
                 return myRobot.buildUnit(Constants.PROPHET, Constants.X[loc.dirInitial], Constants.Y[loc.dirInitial]);
@@ -47,7 +47,7 @@ public class Church extends Unit {
         return null;
     }
 
-    ProphetLoc getBestProphetLoc(Integer dir){
+    ProphetLoc getBestProphetLoc(Integer dir, int maxDist){
         int[][] fuel = new int[utils.dimX][utils.dimY];
         int[][] dirs = new int[utils.dimX][utils.dimY];
         int[][] distM = new int[utils.dimX][utils.dimY];
@@ -70,6 +70,7 @@ public class Church extends Unit {
             if (lastDist >1) limit = Constants.rad4Index;
             for (int i = 0; i < limit; ++i){
                 int newX = last.x + Constants.X[i], newY = last.y + Constants.Y[i];
+                if (utils.distance(myRobot.me.x, myRobot.me.y, newX, newY) > maxDist) continue;
                 int newFuel = lastFuel + Constants.Steplength[i];
                 if (utils.isInMap(newX, newY) && utils.isEmptySpaceAbsolute(newX, newY) && utils.robotMap[newY][newX] == 0){
                     if (distM[newX][newY] == 0){

@@ -14,6 +14,7 @@ public class Castle extends Unit {
 
     @Override
     public Action turn(){
+        myRobot.log(myRobot.me.turn + " ");
         castleUtils.update();
         /*Integer objective = castleUtils.shouldBuildPilgrim();
         if (objective != null) castleUtils.createPilgrim(objective);

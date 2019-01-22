@@ -47,6 +47,7 @@ public class DefenseMechanism {
                 }
             }
         }
+        if (totalTroops >= Constants.MIN_TROOPS) return null;
         int type = whichUnitToBuild();
         if ((totalEnemies > 0 && totalEnemies == enemyUnits[Constants.PILGRIM] && totalTroops == 0)|| totalEnemyTroops > 0){
             return buildDefenseUnit(type, safe);
