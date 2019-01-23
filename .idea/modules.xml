@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BTC.iml" filepath="$PROJECT_DIR$/BTC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BC19.iml" filepath="$PROJECT_DIR$/BC19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examplefuncsplayer-master/bots/bots.iml" filepath="$PROJECT_DIR$/examplefuncsplayer-master/bots/bots.iml" />
+      <module fileurl="file://$PROJECT_DIR$/output/output.iml" filepath="$PROJECT_DIR$/output/output.iml" />
     </modules>
   </component>
 </project>

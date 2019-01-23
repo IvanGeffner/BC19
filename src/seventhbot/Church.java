@@ -38,7 +38,7 @@ public class Church extends Unit {
             return myRobot.buildUnit(dma.type, Constants.X[dma.dir], Constants.Y[dma.dir]);
         }
         if (defenseMechanism.buildUnitRich()){
-            ProphetLoc loc = getBestProphetLoc(null, Constants.MAX_DIST_TROOPS);
+            ProphetLoc loc = getBestProphetLoc(null, Constants.MAX_DIST_CHURCH_TROOPS);
             if (loc != null){
                 broadcast.sendTarget(loc.target, broadcast.PROPHET_AGGRO, Constants.Steplength[loc.dirInitial]);
                 return myRobot.buildUnit(Constants.PROPHET, Constants.X[loc.dirInitial], Constants.Y[loc.dirInitial]);

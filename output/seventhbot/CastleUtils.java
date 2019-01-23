@@ -220,11 +220,11 @@ public class CastleUtils {
             int lastDist = mapDist[last.x][last.y];
             int castle = closestCastle[last.x][last.y];
             if (myRobot.fuelMap[last.y][last.x]){
-                aux.add(new Objective(Constants.OBJ_FUEL, lastDist-1, last.x, last.y, dir[last.x][last.y],castle));
+                aux.add(new Objective(Constants.OBJ_FUEL, lastDist-1, last.x, last.y, dir[last.x][last.y],castle, fuelM[last.x][last.y]));
                 ++fuelCont;
             }
             if (myRobot.karboniteMap[last.y][last.x]){
-                aux.add(new Objective(Constants.OBJ_KARBO, lastDist-1, last.x, last.y, dir[last.x][last.y],castle));
+                aux.add(new Objective(Constants.OBJ_KARBO, lastDist-1, last.x, last.y, dir[last.x][last.y],castle, fuelM[last.x][last.y]));
                 ++karboCont;
             }
             int limit = Constants.rad4Index;
@@ -254,6 +254,7 @@ public class CastleUtils {
             }
         }
         objectives = aux.toArray(new Objective[aux.size()]);
+        sortObjectives();
         karbo = new int[karboCont];
         fuel = new int[fuelCont];
         int indKarbo = 0, indFuel = 0;
@@ -262,6 +263,42 @@ public class CastleUtils {
             if (objectives[i].type == Constants.OBJ_FUEL) fuel[indFuel++] = i;
         }
     }
+
+    void sortObjectives(){
+        if (objectives.length == 0) return;
+        quickSort(0, objectives.length-1);
+    }
+
+    private void quickSort(int lowerIndex, int higherIndex) {
+
+        int i = lowerIndex;
+        int j = higherIndex;
+        Objective pivot = objectives[lowerIndex+(higherIndex-lowerIndex)/2];
+        while (i <= j) {
+            while (objectives[i].value() < pivot.value()) {
+                i++;
+            }
+            while (objectives[j].value() > pivot.value()) {
+                j--;
+            }
+            if (i <= j) {
+                exchangeObjectives(i, j);
+                i++;
+                j--;
+            }
+        }
+        if (lowerIndex < j)
+            quickSort(lowerIndex, j);
+        if (i < higherIndex)
+            quickSort(i, higherIndex);
+    }
+
+    void exchangeObjectives(int i, int j){
+        Objective temp = objectives[i];
+        objectives[i] = objectives[j];
+        objectives[j] = temp;
+    }
+
 
     int karboObjectiveIndex, fuelObjectiveIndex;
 
@@ -277,7 +314,8 @@ public class CastleUtils {
         }
         if (fuelObjectiveIndex >= fuel.length) return karbo[karboObjectiveIndex];
         if (objectives[karbo[karboObjectiveIndex]].isBetterThan(objectives[fuel[fuelObjectiveIndex]])) return karbo[karboObjectiveIndex];
-        return fuel[fuelObjectiveIndex];
+        if (karboObjectiveIndex > 3*fuelObjectiveIndex) return fuel[fuelObjectiveIndex];
+        return karbo[karboObjectiveIndex];
     }
 
     Integer shouldBuildPilgrim(){
@@ -317,6 +355,7 @@ public class CastleUtils {
 
 
         /*for (int objective = 0; objective < objectives.length; ++objective) {
+            if (myRobot.me.turn < Constants.MIN_TURN_CASTLES_ENEMY && objectives[objective].isNearEnemy()) continue;
             int occ = isOccupied(objective);
             if (occ == Constants.FREE) {
                 totalCostKarbo += Constants.karboCosts[Constants.PILGRIM];
@@ -547,28 +586,43 @@ public class CastleUtils {
     }
 
     class Objective{
-        int type, dist, x, y, dir, castle;
+        int type, dist, x, y, dir, castle, fuel;
+        Double value = null;
         Boolean nearEnemy = null;
 
-        public Objective (int type, int dist, int x, int y, int dir, int castle){
+        public Objective (int type, int dist, int x, int y, int dir, int castle, int fuel){
             this.type = type;
             this.dist = dist;
             this.x = x;
             this.y = y;
             this.dir = dir;
             this.castle = castle;
+            this.fuel = fuel;
             //this.nearEnemy = false;
         }
 
-        int value(){
+        int constantValue(){
             if (type == Constants.OBJ_FUEL) return Constants.PRIORITY_FUEL;
             if (type == Constants.OBJ_KARBO) return Constants.PRIORITY_KARBO;
             return 0;
         }
 
+        double value(){
+            if (value != null) return value;
+            value = 0.0;
+            Location symLoc = finalAttack.symmetry.getSymmetric(x,y);
+            double distToSymmetric = utils.distance(x,y, symLoc.x, symLoc.y);
+            if (distToSymmetric <= Constants.MAX_DIST_SYMMETRIC) value += 2*Constants.INF;
+            if (dist <= 3) value += 4*Constants.INF;
+            value += constantValue()*(Constants.INF/dist);
+            value += 1.0/this.fuel;
+            value = -value;
+            return value;
+        }
+
         boolean isBetterThan(Objective obj){
             if (obj == null) return true;
-            return (obj.value()*this.dist < this.value()*obj.dist);
+            return (obj.constantValue()*this.dist < this.constantValue()*obj.dist);
         }
 
         boolean isNearEnemy(){

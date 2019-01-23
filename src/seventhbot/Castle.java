@@ -14,15 +14,8 @@ public class Castle extends Unit {
 
     @Override
     public Action turn(){
-        myRobot.log(myRobot.me.turn + " ");
+        if (myRobot.me.turn%50 == 0) myRobot.log(myRobot.me.turn + " ");
         castleUtils.update();
-        /*Integer objective = castleUtils.shouldBuildPilgrim();
-        if (objective != null) castleUtils.createPilgrim(objective);
-        castleUtils.checkAttack();
-        castleUtils.checkDefense();
-        castleUtils.checkFreeBuild();
-        castleUtils.checkFinalAttack();*/
-
         castleUtils.checkDefense();
         castleUtils.checkAttack();
         castleUtils.checkPilgrim();

@@ -37,7 +37,6 @@ public class Prophet extends Unit {
         utils.update();
         if (objective == null) findObjective();
         checkObjective();
-        //if (mod2 == -1) readMod();
         Action act = chooseAction();
         if (objective != null) broadcast.sendCastleMessage(Constants.MSG_TROOP, objective);
         return act;
@@ -45,7 +44,10 @@ public class Prophet extends Unit {
 
     public Action chooseAction(){
         Integer microAction = micro.getBestIndex();
-        if (microAction != null && microAction != micro.maxMovementIndex){
+        Location loc = attack.tryAttack();
+        Action act = getBestMicroAction(microAction, loc);
+        if (act != null) return act;
+        /*if (microAction != null && microAction != micro.maxMovementIndex){
             if (micro.isOptimal(microAction) && !micro.isOptimalToStay()) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
         }
         Location loc = attack.tryAttack();
@@ -54,8 +56,34 @@ public class Prophet extends Unit {
             if (id > 0) broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
             return myRobot.attack(loc.x, loc.y);
         }
-        if (microAction != null && microAction != micro.maxMovementIndex) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
+        if (microAction != null && microAction != micro.maxMovementIndex) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);*/
         return movementAction();
+    }
+
+    Action getBestMicroAction(Integer microAction, Location attackLoc){
+        if (attackLoc != null){
+            int id = utils.robotMap[myRobot.me.y + attackLoc.y][myRobot.me.x + attackLoc.x];
+            if (id > 0) {
+                Robot r = myRobot.getRobot(id);
+                if (r != null && r.unit == Constants.PROPHET) {
+                    broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
+                    return myRobot.attack(attackLoc.x, attackLoc.y);
+                }
+            }
+        }
+        if (microAction != null && microAction != micro.maxMovementIndex) {
+            if (micro.isOptimal(microAction) && !micro.isOptimalToStay())
+                return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
+        }
+        if (attackLoc != null){
+            int id = utils.robotMap[myRobot.me.y + attackLoc.y][myRobot.me.x + attackLoc.x];
+            if (id > 0) {
+                broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
+            }
+            return myRobot.attack(attackLoc.x, attackLoc.y);
+        }
+        if (microAction != null && microAction != micro.maxMovementIndex) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
+        return null;
     }
 
     void checkObjective(){
