@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91ac8e2f-7c3a-4863-80af-171cf89a68a8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ant.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Clairvoyance" beforeDir="false" afterPath="$PROJECT_DIR$/Clairvoyance" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/replay.bc19" beforeDir="false" afterPath="$PROJECT_DIR$/output/replay.bc19" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/seventhbot/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Castle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/seventhbot/CastleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/CastleUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/seventhbot/Church.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Church.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/seventhbot/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/seventhbot/Prophet.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Prophet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seventhbot/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Castle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seventhbot/Church.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Church.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seventhbot/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seventhbot/Prophet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Prophet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +50,7 @@
       <file leaf-file-name="CastleUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="633">
+            <state relative-caret-position="-3606">
               <caret line="375" column="11" selection-start-line="375" selection-start-column="11" selection-end-line="375" selection-end-column="11" />
               <folding>
                 <element signature="e#25532#25533#0" expanded="true" />
@@ -226,7 +210,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -308,7 +292,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
+        <state relative-caret-position="-3606">
           <caret line="375" column="11" selection-start-line="375" selection-start-column="11" selection-end-line="375" selection-end-column="11" />
           <folding>
             <element signature="e#25532#25533#0" expanded="true" />
