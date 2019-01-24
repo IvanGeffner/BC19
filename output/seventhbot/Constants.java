@@ -87,6 +87,7 @@ public class Constants {
 
     final static int MAX_DIST_TROOPS = 5;
     final static int MAX_DIST_CHURCH_TROOPS = 8;
+    final static int MIN_FUEL_ATTACK_BROADCAST = 1000;
     final static int ATTACK_BROADCAST = 9;
 
     final static int MAX_ATTACK_MEMORY = 6;
@@ -110,5 +111,7 @@ public class Constants {
     final static double MAX_COS = -0.05;
 
     final static int MAX_DIST_SYMMETRIC = 100;
+
+    final static int MAX_MAGES = 3;
 
 }

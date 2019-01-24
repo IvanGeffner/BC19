@@ -1,12 +1,14 @@
-package bc19;
+package preacherrush;
 
+import btcutils.Action;
+import btcutils.Robot;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Preacher extends Unit {
+public class Crusader extends Unit {
 
-    PreacherMicro micro;
+    Micro micro;
     Utils utils;
 
     Location objective = null;
@@ -21,17 +23,15 @@ public class Preacher extends Unit {
     FinalAttack finalAttack;
 
     int turnsWaiting = 0;
-    int initialTurn;
 
-    public Preacher(MyRobot myRobot){
+    public Crusader(MyRobot myRobot){
         super(myRobot);
         utils = new Utils(myRobot);
         occupied = new boolean[utils.dimX][utils.dimY];
         broadcast = new Broadcast(myRobot, utils);
-        micro = new PreacherMicro(myRobot, utils, Constants.rad4Index, broadcast);
+        micro = new Micro(myRobot, utils, Constants.rad4Index, broadcast);
         attack = new Attacker(myRobot, utils, broadcast);
         finalAttack = new FinalAttack(myRobot, utils, broadcast);
-        initialTurn = myRobot.me.turn;
     }
 
     @Override
@@ -46,10 +46,10 @@ public class Preacher extends Unit {
     }
 
     public Action chooseAction(){
-        Location loc = attack.tryAttackPreacher();
+        Location loc = attack.tryAttack();
         if (loc != null){
-            //int id = utils.robotMap[myRobot.me.x + loc.x][myRobot.me.y + loc.y];
-            //if (id > 0) broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
+            int id = utils.robotMap[myRobot.me.x + loc.x][myRobot.me.y + loc.y];
+            if (id > 0) broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
             return myRobot.attack(loc.x, loc.y);
         }
         Integer microAction = micro.getBestIndex();
@@ -91,11 +91,6 @@ public class Preacher extends Unit {
     }
 
     Action movementAction(){
-        if (finalAttackObjective == null) finalAttackObjective = finalAttack.getFinalAttackLocation();
-        if (finalAttackObjective != null){
-            if (checkFinalObjective()) return finalAttackAction();
-            else finalAttackObjective = null;
-        }
         return objectiveAction();
     }
 
@@ -105,7 +100,6 @@ public class Preacher extends Unit {
 
 
     Action objectiveAction(){
-        //if (myRobot.me.turn - initialTurn <= Constants.MAX_STILL_TURNS_PREACHER) return null;
         updateOccMatrix();
         int myX = myRobot.me.x, myY = myRobot.me.y;
         int bestDir = -1;
@@ -149,16 +143,17 @@ public class Preacher extends Unit {
                 }
             }
         }
-        if (bestDir >= 0){
+        if (bestDir >= 0 && micro.isSafe(bestDir)){
+            //myRobot.log("Moving " + bestDir);
             return myRobot.move(Constants.X[bestDir], Constants.Y[bestDir]);
         }
         return null;
     }
 
     Action finalAttackAction(){
-        int limit = Constants.rad2Index;
+        int limit = Constants.rad4Index;
         if (utils.distance(myRobot.me.x, myRobot.me.y, finalAttackObjective.x, finalAttackObjective.y) <= 150){
-            limit = Constants.rad4Index;
+            limit = Constants.rad9Index;
         }
         int myX = myRobot.me.x, myY = myRobot.me.y;
         int[][] fuel = new int[utils.dimX][utils.dimY];
@@ -221,8 +216,4 @@ public class Preacher extends Unit {
             }
         }
     }
-
-
-
-
 }

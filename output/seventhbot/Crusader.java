@@ -89,11 +89,6 @@ public class Crusader extends Unit {
     }
 
     Action movementAction(){
-        if (finalAttackObjective == null) finalAttackObjective = finalAttack.getFinalAttackLocation();
-        if (finalAttackObjective != null){
-            if (checkFinalObjective()) return finalAttackAction();
-            else finalAttackObjective = null;
-        }
         return objectiveAction();
     }
 

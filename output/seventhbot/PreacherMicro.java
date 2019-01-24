@@ -1,7 +1,7 @@
 package bc19;
 
 
-public class Micro {
+public class PreacherMicro {
 
     MyRobot myRobot;
     Utils utils;
@@ -16,7 +16,7 @@ public class Micro {
     boolean addZero = false;
     Broadcast broadcast;
 
-    public Micro(MyRobot myRobot, Utils utils, int maxMovementIndex,Broadcast broadcast){
+    public PreacherMicro(MyRobot myRobot, Utils utils, int maxMovementIndex, Broadcast broadcast){
         this.myRobot = myRobot;
         this.utils = utils;
         this.maxMovementIndex = maxMovementIndex;
@@ -24,15 +24,6 @@ public class Micro {
         this.unitType = myRobot.me.unit;
         addZero = true;
         this.broadcast = broadcast;
-    }
-
-    public Micro(MyRobot myRobot, Utils utils, int maxMovementIndex, int unitType){
-        this.myRobot = myRobot;
-        this.utils = utils;
-        this.maxMovementIndex = maxMovementIndex;
-        this.turnActivated = this.myRobot.me.turn-1;
-        this.unitType = unitType;
-        addZero = false;
     }
 
     Integer getBestIndex(){
@@ -69,13 +60,21 @@ public class Micro {
             }
         }
         if (broadcast != null){
-            Location[] enemyRangers = broadcast.getRangers();
-            for (Location loc : enemyRangers) {
+            MeleeUnit[] enemyMelee = broadcast.getMelee();
+            int cont = -1;
+            for (MeleeUnit loc : enemyMelee) {
                 if (loc == null) break;
-                int d = utils.distance(myRobot.me.x, myRobot.me.y, loc.x, loc.y);
-                if (d <= Constants.visionRange[myRobot.me.unit]) continue;
-                for (MicroInfo m : microInfoArray){
-                    if (m.accessible) m.updateRanger(loc);
+                cont++;
+                int limit = Constants.rad4Index;
+                if (loc.type == Constants.CRUSADER) limit = Constants.rad9Index;
+                for (int i = 0; i < limit; ++i) {
+                    int newX = loc.x + Constants.X[i], newY = loc.y + Constants.Y[i];
+                    int d = utils.distance(myRobot.me.x, myRobot.me.y, newX, newY);
+                    if (d <= Constants.visionRange[myRobot.me.unit]) continue;
+                    if (!utils.isAccessible(newX, newY)) continue;
+                    for (MicroInfo m : microInfoArray) {
+                        if (m.accessible) m.updateMelee(cont, d, Constants.attack[loc.type]);
+                    }
                 }
             }
         }
@@ -112,6 +111,7 @@ public class Micro {
         int minRange = Constants.INF;
         int i;
         int x, y;
+        int latestUpdate = -1;
 
         MicroInfo(int i, boolean accessible){
             this.i = i;
@@ -151,10 +151,10 @@ public class Micro {
             if (d >= Constants.minRange[myRobot.me.unit] && d <= Constants.dangerRange[myRobot.me.unit]) canShoot = true;
         }
 
-        void updateRanger(Location loc){
-            int d = utils.distance(loc.x, loc.y, x,y);
-            if (d > Constants.MAX_RANGE_PROPHET) return;
-            if (Constants.dangerRange[Constants.PROPHET] >= d) dmgTaken += Constants.attack[Constants.PROPHET];
+        void updateMelee(int i, int d, int atk){
+            if (latestUpdate == i) return;
+            latestUpdate = i;
+            if (Constants.range[Constants.PREACHER] >= d) dmgTaken += atk;
             if (myRobot.me.unit != Constants.PILGRIM && minRange > d) minRange = d;
             if (d >= Constants.minRange[myRobot.me.unit] && d <= Constants.dangerRange[myRobot.me.unit]) canShoot = true;
         }

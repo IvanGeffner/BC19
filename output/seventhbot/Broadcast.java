@@ -10,8 +10,8 @@ public class Broadcast {
     final int PILGRIM_MINING = 0;
     final int PILGRIM_AGGRO = 1;
     final int PROPHET_AGGRO = 2;
-    final int ENEMY_SEEN = 3;
-    final int CHURCH_MSG = 4;
+    final int CLOSEST_CRUSADER = 3;
+    final int CLOSEST_PREACHER = 4;
     final int FINAL_ATTACK = 5;
     final int ATK_ID = 6;
     final int CLOSEST_PROPHET = 7;
@@ -116,28 +116,31 @@ public class Broadcast {
         return (myRobot.me.turn == turnBroadcast);
     }
 
-    void broadcastClosestProphet(){
+    void broadcastClosestUnit(){
         if (myRobot.fuel < Constants.SAFETY_FUEL) return;
         Robot closestRobot = null;
         int shortestDist = 0;
-        Location[] rangers = getRangers();
+        //Location[] rangers = getRangers();
         boolean found = false;
         for (Robot r : utils.robotsInVision){
             if (!myRobot.isVisible(r)) continue;
-            if (r.unit != Constants.PROPHET && r.unit != Constants.CASTLE) continue;
+            //if (r.unit != Constants.PROPHET && r.unit != Constants.CASTLE) continue;
+            if (r.unit == Constants.CHURCH || r.unit == Constants.PILGRIM) continue;
             if (r.team == myRobot.me.team){
-                int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x,r.y);
-                if (d <= Constants.CLOSEST_PROPHET_RANGE) found = true;
+                if (r.unit != Constants.PROPHET && r.unit != Constants.PREACHER) {
+                    int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y);
+                    if (d <= Constants.CLOSEST_PROPHET_RANGE) found = true;
+                }
                 continue;
             }
-            if (alreadySent(r, rangers)) continue;
+            //if (alreadySent(r, rangers)) continue;
             int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x,r.y);
             if (closestRobot == null || shortestDist > d){
                 shortestDist = d;
                 closestRobot = r;
             }
         }
-        if (found && closestRobot != null && shortestDist > Constants.range[Constants.PROPHET]) sendClosestProphet(closestRobot);
+        if (found && closestRobot != null && (closestRobot.unit != Constants.PROPHET || shortestDist > Constants.range[Constants.PROPHET])) sendClosestUnit(closestRobot);
     }
 
     boolean alreadySent(Robot r, Location[] locs){
@@ -149,19 +152,12 @@ public class Broadcast {
     }
 
 
-    void sendClosestProphet(Robot prophet){
-        int mes = CLOSEST_PROPHET*2 + (myRobot.me.turn + parity)%2;
-        mes = mes*target_bits + prophet.x* Constants.maxMapSize + prophet.y;
-        /*for (Robot r : utils.robotsInVision){
-            if (!myRobot.isVisible(r)) continue;
-            if (myRobot.me.team != r.team) continue;
-            int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y);
-            if (d > Constants.MIN_RANGE_REPEATED) continue;
-            if (myRobot.isRadioing(r) && d <= r.signal_radius) {
-                if (r.signal == mes) return;
-            }
-        }*/
-        //myRobot.log("I'm at " + myRobot.me.x + " " + myRobot.me.y + " Sending location " + prophet.x + " " + prophet.y);
+    void sendClosestUnit(Robot unit){
+        int mes = CLOSEST_PROPHET;
+        if (unit.unit == Constants.PREACHER) mes = CLOSEST_PREACHER;
+        if (unit.unit == Constants.CRUSADER) mes = CLOSEST_CRUSADER;
+        mes = mes*2 + (myRobot.me.turn + parity)%2;
+        mes = mes*target_bits + unit.x* Constants.maxMapSize + unit.y;
         messageToBroadcast = mes;
         radToBroadcast = Constants.CLOSEST_PROPHET_RANGE;
         turnBroadcast = myRobot.me.turn;
@@ -182,6 +178,33 @@ public class Broadcast {
                 int x = (r.signal/Constants.maxMapSize)%Constants.maxMapSize;
                 ans[cont] = new Location(x,y);
                 ++cont;
+            }
+        }
+        return ans;
+    }
+
+    MeleeUnit[] getMelee(){
+        MeleeUnit[] ans = new MeleeUnit[Constants.MAX_RANGERS];
+        int cont = 0;
+        for (Robot r : utils.robotsInVision){
+            if (cont >= ans.length) break;
+            if (!myRobot.isVisible(r)) continue;
+            if (myRobot.me.team != r.team) continue;
+            if (r.id == myRobot.me.id) continue;
+            if (canReadSignal(r)){
+                int mes = r.signal/(2*target_bits);
+                if (mes == CLOSEST_CRUSADER) {
+                    int y = r.signal % Constants.maxMapSize;
+                    int x = (r.signal / Constants.maxMapSize) % Constants.maxMapSize;
+                    ans[cont] = new MeleeUnit(x, y, Constants.CRUSADER);
+                    ++cont;
+                }
+                if (mes == CLOSEST_PREACHER) {
+                    int y = r.signal % Constants.maxMapSize;
+                    int x = (r.signal / Constants.maxMapSize) % Constants.maxMapSize;
+                    ans[cont] = new MeleeUnit(x, y, Constants.PREACHER);
+                    ++cont;
+                }
             }
         }
         return ans;

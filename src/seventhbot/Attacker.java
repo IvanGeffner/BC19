@@ -37,6 +37,7 @@ public class Attacker {
 
     Location tryAttackPreacher(){
         PreacherLoc bestLoc = null;
+        MeleeUnit[] melee = broadcast.getMelee();
         for (Robot r : utils.robotsInVision) {
             if (!myRobot.isVisible(r)) continue;
             if (r.team == myRobot.me.team) continue;
@@ -49,6 +50,20 @@ public class Attacker {
                     if (utils.isInMap(i,j) && inRange(i,j)){
                         PreacherLoc loc = new PreacherLoc(i,j);
                         if (loc.isBetterThan(bestLoc)) bestLoc = loc;
+                    }
+                }
+            }
+        }
+        for (MeleeUnit loc : melee){
+            if (loc == null) break;
+            int d = utils.distance(loc.x, loc.y, myRobot.me.x, myRobot.me.y);
+            if (d <= Constants.visionRange[myRobot.me.unit]) continue;
+            for (int i = loc.x-1; i <= loc.x +1; ++i) {
+                for (int j = loc.y-1 ; j <= loc.y+1; ++j){
+                    if (utils.isInMap(i,j) && inRange(i,j)){
+                        PreacherLoc ploc = new PreacherLoc(i,j);
+                        ploc.enemiesHit++;
+                        if (ploc.isBetterThan(bestLoc)) bestLoc = ploc;
                     }
                 }
             }
@@ -131,8 +146,8 @@ public class Attacker {
                     int id = utils.robotMap[j][i];
                     if (id <= 0) continue;
                     Robot r = myRobot.getRobot(id);
-                    int val = 1;
-                    if (r.unit == Constants.PROPHET) ++val;
+                    int val = 5;
+                    if (r.unit == Constants.PROPHET) val*=2;
                     if (r.team == myRobot.me.team) alliesHit += val;
                     else enemiesHit += val;
                 }

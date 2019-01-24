@@ -1,12 +1,14 @@
-package bc19;
+package preacherrush;
 
+import btcutils.Action;
+import btcutils.Robot;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Preacher extends Unit {
+public class Prophet extends Unit {
 
-    PreacherMicro micro;
+    Micro micro;
     Utils utils;
 
     Location objective = null;
@@ -21,17 +23,15 @@ public class Preacher extends Unit {
     FinalAttack finalAttack;
 
     int turnsWaiting = 0;
-    int initialTurn;
 
-    public Preacher(MyRobot myRobot){
+    public Prophet(MyRobot myRobot){
         super(myRobot);
         utils = new Utils(myRobot);
         occupied = new boolean[utils.dimX][utils.dimY];
         broadcast = new Broadcast(myRobot, utils);
-        micro = new PreacherMicro(myRobot, utils, Constants.rad4Index, broadcast);
+        micro = new Micro(myRobot, utils, Constants.rad4Index, broadcast);
         attack = new Attacker(myRobot, utils, broadcast);
         finalAttack = new FinalAttack(myRobot, utils, broadcast);
-        initialTurn = myRobot.me.turn;
     }
 
     @Override
@@ -39,22 +39,53 @@ public class Preacher extends Unit {
         utils.update();
         if (objective == null) findObjective();
         checkObjective();
-        //if (mod2 == -1) readMod();
         Action act = chooseAction();
         if (objective != null) broadcast.sendCastleMessage(Constants.MSG_TROOP, objective);
         return act;
     }
 
     public Action chooseAction(){
-        Location loc = attack.tryAttackPreacher();
+        Integer microAction = micro.getBestIndex();
+        Location loc = attack.tryAttack();
+        Action act = getBestMicroAction(microAction, loc);
+        if (act != null) return act;
+        /*if (microAction != null && microAction != micro.maxMovementIndex){
+            if (micro.isOptimal(microAction) && !micro.isOptimalToStay()) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
+        }
+        Location loc = attack.tryAttack();
         if (loc != null){
-            //int id = utils.robotMap[myRobot.me.x + loc.x][myRobot.me.y + loc.y];
-            //if (id > 0) broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
+            int id = utils.robotMap[myRobot.me.x + loc.x][myRobot.me.y + loc.y];
+            if (id > 0) broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
             return myRobot.attack(loc.x, loc.y);
         }
-        Integer microAction = micro.getBestIndex();
-        if (microAction != null && microAction != micro.maxMovementIndex) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
+        if (microAction != null && microAction != micro.maxMovementIndex) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);*/
         return movementAction();
+    }
+
+    Action getBestMicroAction(Integer microAction, Location attackLoc){
+        if (attackLoc != null){
+            int id = utils.robotMap[myRobot.me.y + attackLoc.y][myRobot.me.x + attackLoc.x];
+            if (id > 0) {
+                Robot r = myRobot.getRobot(id);
+                if (r != null && r.unit == Constants.PROPHET) {
+                    broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
+                    return myRobot.attack(attackLoc.x, attackLoc.y);
+                }
+            }
+        }
+        if (microAction != null && microAction != micro.maxMovementIndex) {
+            if (micro.isOptimal(microAction) && !micro.isOptimalToStay())
+                return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
+        }
+        if (attackLoc != null){
+            int id = utils.robotMap[myRobot.me.y + attackLoc.y][myRobot.me.x + attackLoc.x];
+            if (id > 0) {
+                broadcast.sendAttackID(id, Constants.ATTACK_BROADCAST);
+            }
+            return myRobot.attack(attackLoc.x, attackLoc.y);
+        }
+        if (microAction != null && microAction != micro.maxMovementIndex) return myRobot.move(Constants.X[microAction], Constants.Y[microAction]);
+        return null;
     }
 
     void checkObjective(){
@@ -105,7 +136,6 @@ public class Preacher extends Unit {
 
 
     Action objectiveAction(){
-        //if (myRobot.me.turn - initialTurn <= Constants.MAX_STILL_TURNS_PREACHER) return null;
         updateOccMatrix();
         int myX = myRobot.me.x, myY = myRobot.me.y;
         int bestDir = -1;
@@ -149,7 +179,8 @@ public class Preacher extends Unit {
                 }
             }
         }
-        if (bestDir >= 0){
+        if (bestDir >= 0 && micro.isSafe(bestDir)){
+            //myRobot.log("Moving " + bestDir);
             return myRobot.move(Constants.X[bestDir], Constants.Y[bestDir]);
         }
         return null;

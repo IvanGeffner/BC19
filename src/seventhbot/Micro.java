@@ -73,9 +73,7 @@ public class Micro {
             Location[] enemyRangers = broadcast.getRangers();
             for (Location loc : enemyRangers) {
                 if (loc == null) break;
-                //myRobot.log("I'm " + myRobot.me.id + " Detecting ranger at " + loc.x + " " + loc.y);
                 int d = utils.distance(myRobot.me.x, myRobot.me.y, loc.x, loc.y);
-                //myRobot.log("Distance "+ d);
                 if (d <= Constants.visionRange[myRobot.me.unit]) continue;
                 for (MicroInfo m : microInfoArray){
                     if (m.accessible) m.updateRanger(loc);

@@ -1,4 +1,4 @@
-package seventhbot;
+package preacherrush;
 
 import btcutils.Robot;
 

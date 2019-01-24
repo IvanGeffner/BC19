@@ -23,7 +23,7 @@ public class Church extends Unit {
     public Action turn(){
         utils.update();
         Action act = getAction();
-        broadcast.broadcastClosestProphet();
+        broadcast.broadcastClosestUnit();
         broadcast.broadcast();
         return act;
     }

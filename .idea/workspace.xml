@@ -5,6 +5,28 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Clairvoyance" beforeDir="false" afterPath="$PROJECT_DIR$/Clairvoyance" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/replay.bc19" beforeDir="false" afterPath="$PROJECT_DIR$/output/replay.bc19" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Attacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Attacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Broadcast.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Broadcast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Castle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/CastleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/CastleUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Church.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Church.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Crusader.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Crusader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/DefenseMechanism.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/DefenseMechanism.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Micro.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Micro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Preacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Preacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/seventhbot/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/output/seventhbot/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Attacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Attacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Broadcast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Broadcast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Castle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Church.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Church.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Crusader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Crusader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/DefenseMechanism.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/DefenseMechanism.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Micro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Micro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Preacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Preacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seventhbot/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seventhbot/Utils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,25 +37,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Castle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/seventhbot/Castle.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Attacker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/Attacker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prophet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/seventhbot/Prophet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
-              <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
-              <folding>
-                <element signature="e#5553#5554#0" expanded="true" />
-                <element signature="e#5643#5644#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="561">
+              <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -41,17 +50,26 @@
       <file leaf-file-name="DefenseMechanism.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/seventhbot/DefenseMechanism.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+            <state relative-caret-position="534">
+              <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CastleUtils.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pilgrim.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/Pilgrim.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2322">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CastleUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3606">
-              <caret line="375" column="11" selection-start-line="375" selection-start-column="11" selection-end-line="375" selection-end-column="11" />
+            <state relative-caret-position="298">
+              <caret line="311" column="9" selection-start-line="311" selection-start-column="9" selection-end-line="311" selection-end-column="9" />
               <folding>
                 <element signature="e#25532#25533#0" expanded="true" />
                 <element signature="e#25590#25591#0" expanded="true" />
@@ -68,25 +86,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/seventhbot/Constants.java">
+      <file leaf-file-name="FinalAttack.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/FinalAttack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="111" column="21" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+            <state relative-caret-position="510">
+              <caret line="57" column="34" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Church.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/seventhbot/Church.java">
+      <file leaf-file-name="Crusader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/Crusader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="40" column="87" selection-start-line="40" selection-start-column="87" selection-end-line="40" selection-end-column="87" />
+            <state relative-caret-position="-697">
+              <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+              <folding>
+                <element signature="e#3142#3143#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Micro.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/Micro.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1506">
+              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+              <folding>
+                <element signature="e#2876#2877#0" expanded="true" />
+                <element signature="e#2943#2944#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreacherMicro.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/PreacherMicro.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="78" column="17" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
+              <folding>
+                <element signature="e#3035#3036#0" expanded="true" />
+                <element signature="e#3102#3103#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/seventhbot/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="786">
+              <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,12 +166,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/seventhbot/Castle.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Prophet.java" />
-        <option value="$PROJECT_DIR$/src/seventhbot/DefenseMechanism.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Castle.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Micro.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Preacher.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Church.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/MeleeUnit.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Broadcast.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Utils.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/PreacherMicro.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Attacker.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/Constants.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/DefenseMechanism.java" />
         <option value="$PROJECT_DIR$/src/seventhbot/CastleUtils.java" />
+        <option value="$PROJECT_DIR$/src/seventhbot/Crusader.java" />
       </list>
     </option>
   </component>
@@ -114,8 +194,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -139,6 +217,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -212,32 +292,32 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info active="true" anchor="right" id="Ant Build" order="1" visible="true" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info id="Favorites" side_tool="true" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -247,6 +327,9 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
     <buildFile url="file://$PROJECT_DIR$/build_bc.xml">
+      <targetFilters>
+        <filter targetName="run" isVisible="false" />
+      </targetFilters>
       <expanded value="true" />
     </buildFile>
   </component>
@@ -260,39 +343,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/Prophet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
+        <state relative-caret-position="1309">
           <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
-          <folding>
-            <element signature="e#5553#5554#0" expanded="true" />
-            <element signature="e#5643#5644#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/DefenseMechanism.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
+        <state relative-caret-position="1020">
           <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/seventhbot/Church.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="40" column="87" selection-start-line="40" selection-start-column="87" selection-end-line="40" selection-end-column="87" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
+        <state relative-caret-position="1887">
           <caret line="111" column="21" selection-start-line="111" selection-start-column="21" selection-end-line="111" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Church.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="40" column="87" selection-start-line="40" selection-start-column="87" selection-end-line="40" selection-end-column="87" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3606">
+        <state relative-caret-position="6273">
           <caret line="375" column="11" selection-start-line="375" selection-start-column="11" selection-end-line="375" selection-end-column="11" />
           <folding>
             <element signature="e#25532#25533#0" expanded="true" />
@@ -305,6 +384,141 @@
             <element signature="e#26583#26584#0" expanded="true" />
             <element signature="e#26611#26612#0" expanded="true" />
             <element signature="e#26708#26709#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Prophet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="70" column="75" selection-start-line="70" selection-start-column="75" selection-end-line="70" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Castle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Preacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Church.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/MeleeUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Broadcast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="199" column="72" selection-start-line="199" selection-start-column="72" selection-end-line="199" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="786">
+          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Micro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1506">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+          <folding>
+            <element signature="e#2876#2877#0" expanded="true" />
+            <element signature="e#2943#2944#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/PreacherMicro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="78" column="17" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
+          <folding>
+            <element signature="e#3035#3036#0" expanded="true" />
+            <element signature="e#3102#3103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Attacker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/DefenseMechanism.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Pilgrim.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2322">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/CastleUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="311" column="9" selection-start-line="311" selection-start-column="9" selection-end-line="311" selection-end-column="9" />
+          <folding>
+            <element signature="e#25532#25533#0" expanded="true" />
+            <element signature="e#25590#25591#0" expanded="true" />
+            <element signature="e#25618#25619#0" expanded="true" />
+            <element signature="e#25715#25716#0" expanded="true" />
+            <element signature="e#26135#26136#0" expanded="true" />
+            <element signature="e#26233#26234#0" expanded="true" />
+            <element signature="e#26526#26527#0" expanded="true" />
+            <element signature="e#26583#26584#0" expanded="true" />
+            <element signature="e#26611#26612#0" expanded="true" />
+            <element signature="e#26708#26709#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/FinalAttack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="57" column="34" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/seventhbot/Crusader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-697">
+          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+          <folding>
+            <element signature="e#3142#3143#0" expanded="true" />
           </folding>
         </state>
       </provider>

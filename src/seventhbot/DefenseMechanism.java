@@ -14,7 +14,7 @@ public class DefenseMechanism {
     final int firstSoldierIndex = 3;
 
     int roundLastUnit = -100;
-    boolean mageNearby;
+    int mageNearby;
 
     public DefenseMechanism(MyRobot myRobot, Utils utils){
         this.myRobot = myRobot;
@@ -29,7 +29,7 @@ public class DefenseMechanism {
         myUnits = new int[Constants.UNITTYPES];
         enemyUnits = new int[Constants.UNITTYPES];
         int totalUnits = 0, totalEnemies = 0, totalTroops = 0, totalEnemyTroops = 0;
-        mageNearby = false;
+        mageNearby = 0;
         for (Robot r : utils.robotsInVision){
             if (myRobot.isVisible(r)){
                 if (r.team != myRobot.me.team){
@@ -43,7 +43,7 @@ public class DefenseMechanism {
                     /*TODO this patch is rtded*/
                     if (r.unit > Constants.PILGRIM && utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y) <= Constants.MAX_DIST_TROOPS){
                         ++totalTroops;
-                        if (r.unit == Constants.PREACHER) mageNearby = true;
+                        if (r.unit == Constants.PREACHER) ++mageNearby;
                     }
                 }
             }
@@ -57,7 +57,7 @@ public class DefenseMechanism {
     }
 
     int whichUnitToBuild(){
-        if (!mageNearby && (enemyUnits[Constants.CRUSADER] + enemyUnits[Constants.PREACHER]) > 0) return Constants.PREACHER;
+        if (mageNearby <= Constants.MAX_MAGES && (enemyUnits[Constants.CRUSADER] + enemyUnits[Constants.PREACHER]) > 0) return Constants.PREACHER;
         return Constants.PROPHET;
     }
 

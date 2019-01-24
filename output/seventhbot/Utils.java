@@ -86,4 +86,9 @@ public class Utils {
         return true;
     }
 
+    boolean isAccessible(int x, int y){
+        if (!isInMap(x,y)) return false;
+        return myRobot.map[y][x];
+    }
+
 }

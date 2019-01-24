@@ -306,7 +306,7 @@ public class CastleUtils {
 
 
     int getBestIndex(){
-        if (myRobot.me.turn < Constants.MIN_TURN_CASTLES_ENEMY){
+        if (!finalAttack.alreadyCalled){
             while (karboObjectiveIndex < karbo.length && objectives[karbo[karboObjectiveIndex]].isNearEnemy()) ++karboObjectiveIndex;
             while (fuelObjectiveIndex < fuel.length && objectives[fuel[fuelObjectiveIndex]].isNearEnemy()) ++fuelObjectiveIndex;
         }

@@ -8,7 +8,7 @@ import java.util.Queue;
 
 public class Preacher extends Unit {
 
-    Micro micro;
+    PreacherMicro micro;
     Utils utils;
 
     Location objective = null;
@@ -28,9 +28,9 @@ public class Preacher extends Unit {
     public Preacher(MyRobot myRobot){
         super(myRobot);
         utils = new Utils(myRobot);
-        micro = new Micro(myRobot, utils, Constants.rad4Index, null);
         occupied = new boolean[utils.dimX][utils.dimY];
         broadcast = new Broadcast(myRobot, utils);
+        micro = new PreacherMicro(myRobot, utils, Constants.rad4Index, broadcast);
         attack = new Attacker(myRobot, utils, broadcast);
         finalAttack = new FinalAttack(myRobot, utils, broadcast);
         initialTurn = myRobot.me.turn;
@@ -107,7 +107,7 @@ public class Preacher extends Unit {
 
 
     Action objectiveAction(){
-        if (myRobot.me.turn - initialTurn <= Constants.MAX_STILL_TURNS_PREACHER) return null;
+        //if (myRobot.me.turn - initialTurn <= Constants.MAX_STILL_TURNS_PREACHER) return null;
         updateOccMatrix();
         int myX = myRobot.me.x, myY = myRobot.me.y;
         int bestDir = -1;

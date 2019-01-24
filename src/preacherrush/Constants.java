@@ -1,4 +1,4 @@
-package seventhbot;
+package preacherrush;
 
 public class Constants {
 

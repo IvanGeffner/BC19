@@ -21,7 +21,7 @@ public class Castle extends Unit {
         castleUtils.checkPilgrim();
         castleUtils.checkFinalAttack();
         castleUtils.checkFreeBuild();
-        castleUtils.broadcast.broadcastClosestProphet();
+        castleUtils.broadcast.broadcastClosestUnit();
         castleUtils.broadcast.broadcast();
         return castleUtils.nextTurnAction;
     }
