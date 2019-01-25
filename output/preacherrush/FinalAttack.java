@@ -1,6 +1,5 @@
-package preacherrush;
+package bc19;
 
-import btcutils.Robot;
 
 public class FinalAttack {
 

@@ -1,7 +1,5 @@
-package preacherrush;
+package bc19;
 
-import btcutils.Action;
-import btcutils.Robot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
