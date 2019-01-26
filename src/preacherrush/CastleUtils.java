@@ -103,7 +103,9 @@ public class CastleUtils {
         for (Robot r : utils.robotsInVision){
             if (myRobot.isVisible(r) && r.team == myRobot.me.team && r.unit == Constants.PREACHER) ++cont;
         }
-        if (cont >= Constants.MIN_PREACHERS) finalAttack.checkFinalAttack();
+        if (cont >= Constants.MIN_PREACHERS){
+            finalAttack.checkFinalAttack();
+        }
     }
 
     void checkBuildPreacher(){
@@ -360,7 +362,7 @@ public class CastleUtils {
         int totalCostFuel = Constants.SAFETY_FUEL + churchRequiredCont* Constants.fuelCosts[Constants.CHURCH];
         if (objectives == null) return null;
         Integer ans = null;
-        karboObjectiveIndex = 0;
+        /*karboObjectiveIndex = 0;
         fuelObjectiveIndex = 0;
         while (karboObjectiveIndex < karbo.length || fuelObjectiveIndex < fuel.length){
             int objective = getBestIndex();
@@ -382,7 +384,7 @@ public class CastleUtils {
             }
             if (objectives[objective].type == Constants.OBJ_FUEL)++fuelObjectiveIndex;
             else ++karboObjectiveIndex;
-        }
+        }*/
 
 
 
@@ -390,7 +392,7 @@ public class CastleUtils {
 
 
 
-        /*for (int objective = 0; objective < objectives.length; ++objective) {
+        for (int objective = 0; objective < objectives.length; ++objective) {
             if (myRobot.me.turn < Constants.MIN_TURN_CASTLES_ENEMY && objectives[objective].isNearEnemy()) continue;
             int occ = isOccupied(objective);
             if (occ == Constants.FREE) {
@@ -407,7 +409,7 @@ public class CastleUtils {
                     totalCostFuel += Constants.fuelCosts[Constants.PILGRIM];
                 }
             }
-        }*/
+        }
         if (ans == null) return null;
         if (totalCostKarbo > myRobot.karbonite) return null;
         if (totalCostFuel > myRobot.fuel) return null;

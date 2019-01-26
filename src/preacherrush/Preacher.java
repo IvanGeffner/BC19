@@ -82,6 +82,10 @@ public class Preacher extends Unit {
             Robot robot = utils.getRobot(newX, newY);
             if (robot != null){
                 if (robot.team == myRobot.me.team && (robot.unit == Constants.CASTLE || robot.unit == Constants.CHURCH)){
+                    //if (finalAttack == null) myRobot.log("WTF is going on");
+                    //else if (finalAttack.symmetry == null) myRobot.log("Symmetry is null?!");
+                    //if (robot == null) myRobot.log("no robot...");
+                   // myRobot.log("lol");
                     objective = finalAttack.symmetry.getSymmetric(robot.x, robot.y);
                     break;
                 }
@@ -105,8 +109,10 @@ public class Preacher extends Unit {
 
     Action objectiveAction(){
         if (myRobot.me.turn - initialTurn >= Constants.MAX_STEPS){
-            Location loc = finalAttack.getFinalAttackLocation();
-            if (loc == null) return null;
+            if (finalAttackObjective == null){
+                finalAttackObjective = finalAttack.getFinalAttackLocation();
+                if (finalAttackObjective == null) return null;
+            }
         }
         updateOccMatrix();
         int myX = myRobot.me.x, myY = myRobot.me.y;

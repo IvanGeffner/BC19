@@ -15,6 +15,8 @@ public class FinalAttack {
     Broadcast broadcast;
     CastleUtils castleUtils;
 
+    int lastTurnCalles = -10;
+
     boolean alreadyCalled = false;
 
     FinalAttack(MyRobot myRobot, CastleUtils castleUtils){
@@ -29,6 +31,7 @@ public class FinalAttack {
         this.myRobot = myRobot;
         this.utils = utils;
         this.broadcast = broadcast;
+        this.symmetry = new Symmetry(myRobot, utils);
     }
 
     Location getFinalAttackLocation(){
@@ -42,7 +45,7 @@ public class FinalAttack {
                 int xObj = (r.signal/ Constants.maxMapSize)% Constants.maxMapSize;
                 int yObj = r.signal% Constants.maxMapSize;
                 Location loc = new Location(xObj, yObj);
-                if (myRobot.me.unit != Constants.CASTLE && myRobot.me.unit != Constants.CRUSADER && utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y) > BROADCAST_DIST) continue;
+                //if (myRobot.me.unit != Constants.CASTLE && myRobot.me.unit != Constants.CRUSADER && utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y) > BROADCAST_DIST) continue;
                 if (bestLoc == null || utils.distance(myLoc, loc) < minDist){
                     minDist = utils.distance(myLoc, loc);
                     bestLoc = loc;
@@ -54,6 +57,8 @@ public class FinalAttack {
 
 
     void checkFinalAttack(){
+        if (myRobot.me.turn - lastTurnCalles < 6) return;
+        lastTurnCalles = myRobot.me.turn;
         broadcast.sendTarget(mySymmetric(), broadcast.FINAL_ATTACK, Constants.MAX_RANGE);
     }
 

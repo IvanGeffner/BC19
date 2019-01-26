@@ -127,10 +127,9 @@ public class Broadcast {
             //if (r.unit != Constants.PROPHET && r.unit != Constants.CASTLE) continue;
             if (r.unit == Constants.CHURCH || r.unit == Constants.PILGRIM) continue;
             if (r.team == myRobot.me.team){
-                if (r.unit != Constants.PROPHET && r.unit != Constants.PREACHER) {
-                    int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y);
-                    if (d <= Constants.CLOSEST_PROPHET_RANGE) found = true;
-                }
+                if (r.unit != Constants.PROPHET && r.unit != Constants.PREACHER) continue;
+                int d = utils.distance(myRobot.me.x, myRobot.me.y, r.x, r.y);
+                if (d <= Constants.CLOSEST_PROPHET_RANGE) found = true;
                 continue;
             }
             //if (alreadySent(r, rangers)) continue;
@@ -153,6 +152,7 @@ public class Broadcast {
 
 
     void sendClosestUnit(Robot unit){
+        myRobot.log("Sending " + unit.unit + " " + unit.x + " " + unit.y);
         int mes = CLOSEST_PROPHET;
         if (unit.unit == Constants.PREACHER) mes = CLOSEST_PREACHER;
         if (unit.unit == Constants.CRUSADER) mes = CLOSEST_CRUSADER;

@@ -17,7 +17,7 @@ public class Castle extends Unit {
         castleUtils.update();
         castleUtils.checkAttack();
         castleUtils.checkPilgrim();
-        castleUtils.checkFinalAttack();
+        //castleUtils.checkFinalAttack();
         castleUtils.checkBuildPreacher();
         castleUtils.checkPreachers();
         castleUtils.broadcast.broadcast();

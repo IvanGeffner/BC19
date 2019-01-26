@@ -97,7 +97,7 @@ public class Constants {
     final static int BARE_MINIMUM_KARBO = 30;
     final static int BARE_MINIMUM_FUEL = 100;
 
-    final static int CLOSEST_PROPHET_RANGE = 16;
+    final static int CLOSEST_PROPHET_RANGE = 9;
     final static int MIN_RANGE_REPEATED = 5;
     final static int MAX_RANGE_PROPHET = 100;
     final static int MAX_RANGERS = 10;

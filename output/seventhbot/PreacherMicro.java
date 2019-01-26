@@ -59,11 +59,13 @@ public class PreacherMicro {
                 }
             }
         }
+        //myRobot.log("Checking extra units");
         if (broadcast != null){
             MeleeUnit[] enemyMelee = broadcast.getMelee();
             int cont = -1;
             for (MeleeUnit loc : enemyMelee) {
                 if (loc == null) break;
+                //myRobot.log("Detected enemy at " + loc.x + " " + loc.y + " of type " + loc.type);
                 cont++;
                 int limit = Constants.rad4Index;
                 if (loc.type == Constants.CRUSADER) limit = Constants.rad9Index;
@@ -73,7 +75,7 @@ public class PreacherMicro {
                     if (d <= Constants.visionRange[myRobot.me.unit]) continue;
                     if (!utils.isAccessible(newX, newY)) continue;
                     for (MicroInfo m : microInfoArray) {
-                        if (m.accessible) m.updateMelee(cont, d, Constants.attack[loc.type]);
+                        if (m.accessible) m.updateMelee(cont, newX, newY, Constants.attack[loc.type]);
                     }
                 }
             }
@@ -111,7 +113,7 @@ public class PreacherMicro {
         int minRange = Constants.INF;
         int i;
         int x, y;
-        int latestUpdate = -1;
+        int latestUpdate = -10;
 
         MicroInfo(int i, boolean accessible){
             this.i = i;
@@ -147,15 +149,17 @@ public class PreacherMicro {
         void update(Robot r){
             int d = utils.distance(r.x, r.y, x,y);
             if (Constants.dangerRange[r.unit] >= d) dmgTaken += Constants.attack[r.unit];
-            if (myRobot.me.unit != Constants.PILGRIM && minRange > d) minRange = d;
+            if (minRange > d) minRange = d;
             if (d >= Constants.minRange[myRobot.me.unit] && d <= Constants.dangerRange[myRobot.me.unit]) canShoot = true;
         }
 
-        void updateMelee(int i, int d, int atk){
-            if (latestUpdate == i) return;
-            latestUpdate = i;
-            if (Constants.range[Constants.PREACHER] >= d) dmgTaken += atk;
-            if (myRobot.me.unit != Constants.PILGRIM && minRange > d) minRange = d;
+        void updateMelee(int i, int newX, int newY, int atk){
+            int d = utils.distance(x,y,newX,newY);
+            if (latestUpdate != i && d <= Constants.range[Constants.PREACHER]){
+                dmgTaken += atk;
+                latestUpdate = i;
+            }
+            if (minRange > d) minRange = d;
             if (d >= Constants.minRange[myRobot.me.unit] && d <= Constants.dangerRange[myRobot.me.unit]) canShoot = true;
         }
 

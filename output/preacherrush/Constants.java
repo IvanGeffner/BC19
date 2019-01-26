@@ -116,6 +116,6 @@ public class Constants {
 
     final static int MAX_STEPS = 2;
     final static int MIN_PREACHERS = 3;
-    final static int MAX_RANGE = 36;
+    final static int MAX_RANGE = 100;
 
 }
