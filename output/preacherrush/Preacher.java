@@ -39,6 +39,7 @@ public class Preacher extends Unit {
     @Override
     public Action turn(){
         utils.update();
+        if (finalAttackObjective == null) finalAttackObjective = finalAttack.getFinalAttackLocation();
         if (objective == null) findObjective();
         //checkObjective();
         //if (mod2 == -1) readMod();
@@ -107,10 +108,7 @@ public class Preacher extends Unit {
 
     Action objectiveAction(){
         if (myRobot.me.turn - initialTurn >= Constants.MAX_STEPS){
-            if (finalAttackObjective == null){
-                finalAttackObjective = finalAttack.getFinalAttackLocation();
-                if (finalAttackObjective == null) return null;
-            }
+            if (finalAttackObjective == null) return null;
         }
         updateOccMatrix();
         int myX = myRobot.me.x, myY = myRobot.me.y;
